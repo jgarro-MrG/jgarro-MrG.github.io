@@ -185,18 +185,19 @@ We've made the structure of the site so now we need some content! Let's move on 
  <details> 
      <summary> Click to see what your code should look like after this step</summary>
 
-  ```HTML
-  <!DOCTYPE HTML>
-  <html>
-      <head>
-        <title>Sheba's Amazing Website</title>
-      </head>
+```HTML
+<!DOCTYPE HTML>
+<html>
+    <head>
+      <title>Sheba's Amazing Website</title>
+    </head>
 
-      <body>
+    <body>
 
-      </body>
-  </html>
-  ```
+    </body>
+</html>
+```
+
   </details>
   
 #
@@ -300,8 +301,10 @@ We're going to create `<div>` tags to group our content together. What is the di
 
           </div>
       </main>
-    ```
-    </details>
+
+  ```
+  </details>
+  ```
 
 #
 
@@ -321,7 +324,6 @@ Ok, so far, we've sectioned off our webpage, now we need to add some content...
 
   - Create a `<h2> </h2>` element and put your name inside of it.
   - Below that make a `<p> </p>` element and inside it put your position or job title (such as "Student at XYZ High.")
-
 
 #
 
@@ -344,8 +346,8 @@ Inside of the Content `<div>` element, let's create a section where we can list 
   - Inside the new `<div>` element, give the list a title with the `<h3>` tag and the text `Interests`.
   - Create an unordered list with the `<ul>` tag and three sets of `<li>` tags nested inside
 
-   <details> 
-   <summary> Click to see what your code should look like after completing these steps</summary>
+     <details> 
+     <summary> Click to see what your code should look like after completing these steps</summary>
 
     > In the end, your code should look like this (only with more specific interests, of course)!
     >
@@ -365,9 +367,8 @@ Inside of the Content `<div>` element, let's create a section where we can list 
     >        </div>
     >    </div>
     > ```
-</details>
 
-
+  </details>
 
 Now, save your page and preview it.
 
@@ -398,8 +399,6 @@ Now, save your page and preview it.
 
   > **To add an image:** We need to add the URL of an actual image with the **src** attribute. Find an image you would like on your page, you can find an image of yourself from Facebook, or anything else using a Google image search. Right-click on the image, and choose 'Copy Image URL.' Then, paste that URL into the **src** attribute.
 
-   
-
 Your full image tag should look this this:
 
 ```HTML
@@ -408,8 +407,6 @@ Your full image tag should look this this:
 <img src="https://github.com/OperationSpark/first-website-hs-beta/blob/master/img/hallebot.png?raw=true">
 </div>
 ```
-
-
 
 Save your code and refresh your preview. It should look something like this:
 
@@ -510,7 +507,7 @@ We now have a fairly plain website but it's a website! Let's add some style. Her
        </details>
        <br>
 
-  - **FIND:** Open the  file named `style.css`. All of the CSS rules will go in this CSS file.
+  - **FIND:** Open the file named `style.css`. All of the CSS rules will go in this CSS file.
 
 - **9b.** **CODE:** Copy the entire section below and place it inside the `style.css` file
 
@@ -859,7 +856,6 @@ Save and preview one more time. You've now added in all of the class and id attr
 <br>
 
 #
-
 
 ## **TODO 12 :** _Go Live_
 
