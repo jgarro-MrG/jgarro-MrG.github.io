@@ -365,7 +365,7 @@ function deathOfPlayer() {
     canvas.width / 2,
     canvas.height / 2
   );
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "gray";
   ctx.font = "800% serif";
   ctx.fillText(
     "You are dead",
@@ -411,7 +411,7 @@ function playerFrictionAndGravity() {
 
 function drawPlatforms() {
   for (var i = 0; i < platforms.length; i++) {
-    ctx.fillStyle = "grey";
+    ctx.fillStyle = "#1f2423"; // JG:changed platform color
     ctx.fillRect(
       platforms[i].x,
       platforms[i].y,
