@@ -27,14 +27,14 @@ $(function () {
          * This can give you a better idea of where to create new platforms
          * Comment the lines out to remove the grid
          */
-
-        // for (let i = 100; i < canvas.width; i += 100) {
-        //   createPlatform(i, canvas.height, -1, -canvas.height);
-        // }
-        // for (let i = 100; i < canvas.height; i += 100) {
-        //   createPlatform(canvas.width, i, -canvas.width, -1);
-        // }
-
+/* 
+        for (let i = 100; i < canvas.width; i += 100) {
+           createPlatform(i, canvas.height, -1, -canvas.height);
+        }
+        for (let i = 100; i < canvas.height; i += 100) {
+           createPlatform(canvas.width, i, -canvas.width, -1);
+        }
+ */
         /////////////////////////////////////////////////
         //////////ONLY CHANGE BELOW THIS POINT///////////
         /////////////////////////////////////////////////
@@ -44,41 +44,24 @@ $(function () {
         // You must decide the x position, y position, width, and height of the platforms
         // example usage: createPlatform(x,y,width,height)
 
-        //rebuilding platforms
         createPlatform(200, 650, 100, 100);
         createPlatform(400, 550, 100, 100);
         createPlatform(500, 550, 400, 100);
         createPlatform(1000, 550, 200, 100);
-        createPlatform(1300, 550, 100, 100);
         createPlatform(100, 450, 400, 100);
         createPlatform(1100, 450, 100, 100);
-
-        /*         createPlatform((canvas.width * 3) / 12, canvas.height * 0.85, 100, 15);
-        createPlatform((canvas.width * 6) / 12, canvas.height * 0.85, 100, 15);
-        createPlatform((canvas.width * 9) / 12, canvas.height * 0.85, 100, 15);
-
-        createPlatform((canvas.width * 1.5) / 12, canvas.height * 0.7, 90, 15);
-        createPlatform((canvas.width * 4.5) / 12, canvas.height * 0.7, 90, 15);
-        createPlatform((canvas.width * 7.5) / 12, canvas.height * 0.7, 90, 15);
-        createPlatform((canvas.width * 10.5) / 12, canvas.height * 0.7, 90, 15);
-
-        createPlatform((canvas.width * 2.5) / 12, canvas.height * 0.55, 80, 15);
-        createPlatform((canvas.width * 5.5) / 12, canvas.height * 0.55, 80, 15);
-        createPlatform((canvas.width * 8.5) / 12, canvas.height * 0.55, 80, 15);
-
-        createPlatform((canvas.width * 1) / 12, canvas.height * 0.4, 70, 15);
-        createPlatform((canvas.width * 4) / 12, canvas.height * 0.4, 70, 15);
-        createPlatform((canvas.width * 7) / 12, canvas.height * 0.4, 70, 15);
-        createPlatform((canvas.width * 10) / 12, canvas.height * 0.4, 70, 15);
-
-        createPlatform((canvas.width * 2) / 12, canvas.height * 0.3, 60, 15);
-        createPlatform((canvas.width * 5) / 12, canvas.height * 0.3, 60, 15);
-        createPlatform((canvas.width * 8) / 12, canvas.height * 0.3, 60, 15);
-
-        createPlatform((canvas.width * 0.5) / 12, canvas.height * 0.2, 50, 15);
-        createPlatform((canvas.width * 3.5) / 12, canvas.height * 0.2, 50, 15);
-        createPlatform((canvas.width * 6.5) / 12, canvas.height * 0.2, 50, 15);
-        createPlatform((canvas.width * 9.5) / 12, canvas.height * 0.2, 50, 15); */
+        createPlatform(1300, 350, 100, 300);
+        createPlatform(600, 350, 300, 100);
+        createPlatform(100, 250, 600, 100);
+        createPlatform(800, 250, 100, 100);
+        createPlatform(1000, 250, 200, 100);
+        createPlatform(100, 150, 100, 100);
+        createPlatform(300, 150, 100, 100);
+        createPlatform(500, 150, 100, 100);
+        createPlatform(900, 50, 100, 100);
+        createPlatform(200, 0, 100, 50);
+        createPlatform(400, 0, 100, 50);
+        createPlatform(900, 0, 100, 50);
 
         // TODO 2
         // Create collectables
@@ -86,60 +69,30 @@ $(function () {
         // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
         // example usage: createCollectable(type, x, y, gravity, bounce)
 
-        /*
-        createCollectable(
-            "steve",
-            canvas.width * 0.25,
-            canvas.height * 0.25,
-            20,
-            0.5
-        );
-        createCollectable(
-            "grace",
-            canvas.width * 0.50,
-            canvas.height * 0.50,
-            20,
-            0.5
-        );
-        createCollectable(
-            "database",
-            canvas.width * Math.random(),
-            canvas.height * Math.random(),
-            20,
-            0.5
-        );
-        createCollectable(
-            "max",
-            canvas.width * 0.75,
-            canvas.height * 0.75,
-            20,
-            0.5
-        );
-        createCollectable(
-            "kennedi",
-            canvas.width * Math.random(),
-            canvas.height * Math.random(),
-            20,
-            0.5
-        );
-        */
+        createCollectable("steve", 130, 90, 0, 0);
+        createCollectable("steve", 1230, 90, 0, 0);
+        createCollectable("steve", 730, 290, 0, 0);
+        createCollectable("steve", 930, 290, 0, 0);
+        createCollectable("steve", 130, 390, 0, 0);
+        createCollectable("steve", 1330, 690, 0, 0.5);
 
         // TODO 3
         // Create cannons
         // You must decide the wall you want the cannon on, the position on the wall, and the time between shots in milliseconds
         // Your wall choices are: 'top' 'left' 'right' and 'bottom'
         // example usage: createCannon(side, position, delay, width, height)
-/* 
 
-        createCannon("right", canvas.height * 0.2, 3000);
-        createCannon("right", canvas.height * 0.6, 1000);
-        createCannon("left", canvas.height * 0.7, 2000);
-        createCannon("left", canvas.height * 0.2, 5000);
-        createCannon("top", canvas.width * 0.2, 4000);
-        createCannon("top", canvas.width * 0.4, 6000);
-        createCannon("top", canvas.width * 0.6, 8000);
-        createCannon("top", canvas.width * 0.8, 10000);
- */
+        createCannon("left", 40, 5000);
+        createCannon("left", 340, 4000);
+        createCannon("left", 540, 5000);
+        createCannon("top", 410, 3000);
+        createCannon("top", 610, 2000);
+        createCannon("top", 810, 1500);
+        createCannon("top", 1410, 1000);
+        createCannon("right", 360, 10000);
+        createCannon("bottom", 890, 4000);
+        createCannon("bottom", 1190, 3000);
+
         /////////////////////////////////////////////////
         //////////ONLY CHANGE ABOVE THIS POINT///////////
         /////////////////////////////////////////////////
