@@ -8,17 +8,22 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-image: url("img/gold-square-frame.png");
+			background-size: 70px 70px;
+			background-repeat: no-repeat;
 			font-size: 300%;
+			font-family: sans-serif;
 			text-align: center;
+			padding-top: 10px;
 			user-select: none;
 			display: block;
 			position: absolute;
 			top: 100px;
-			left: 0px;  /* <--- Change me! */
+			left: 500px;  /* <--- Change me! */
 		}
 		.board{
 			height: 100vh;
+			background-image: linear-gradient(to right, #FFFF00, #FF0000);
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -63,15 +68,28 @@
 			
 			// TODO 2 - Variable declarations 
 			var positionX = 0;
-
-			
+			var points = 0;
+			var speed = 10;
+		
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
 			function update() {
-				positionX = positionX + 10;
+
+				// makes boardWidth responsive
+				boardWidth = jQuery('.board').width(); 
+				
+				// keeps the box bouncing within the board's limits
+				if ( positionX > boardWidth - box.width() / 2 || positionX < 0 ) {
+					speed *= -1;
+					//changes backround gradient color
+					changeBackgroundGradient();
+				} 
+				
+				// keeps the box in motion
+				positionX = positionX + speed;
 				moveBoxTo(positionX);
 
 			};
@@ -82,11 +100,42 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				console.log(positionX)
-				positionX = 0;
+				points += 1 ;
+				if (speed >= 0){
+					speed += 3;
+				} else {
+					speed -= 3;
+				}
+				changeBoxText(points);
 				// Reassigning the positionX variable to 0 so that the box will move back to the left side of the screen
-
+				//positionX = 0;
 			};
+
+			// array of colors used to generate the gradients
+			var colors = [
+				"#FF0000",
+				"#FFFF00",
+				"#00FF00",
+				"#00FFFF",
+				"#0000FF",
+				"#FF00FF"
+			];
+
+			// used as indexes to access the array of colors
+			var leftStop = 0;
+			var rightStop = 1;
+
+			//This function will be called to change the background gradient
+			function changeBackgroundGradient() {
+				var backgroundGradient = "linear-gradient(to right, "+ colors[leftStop] +", "+ colors[rightStop] +")";
+				
+				// jQuery to set the backgrount-image property
+				$('.board').css("background-image",backgroundGradient);
+				
+				//ternary conditionals to rotate throught the gradient color stops
+				leftStop < 5 ? leftStop ++ : leftStop = 0;
+				rightStop < 5 ? rightStop ++ : rightStop = 0;
+			}
 
 
 
