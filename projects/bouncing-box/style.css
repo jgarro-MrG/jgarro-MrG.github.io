@@ -1,0 +1,71 @@
+body {
+    background-color: black;
+    overflow: hidden;
+}
+
+
+
+.box {
+    width: 70px;
+    height: 70px;
+    box-shadow: 0px 0px 30px black;
+    background-image: url("img/gold-square-frame.png");
+    background-size: 70px 80px;
+    background-repeat: no-repeat;
+    font-size: 300%;
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 10px;
+    user-select: none;
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 500px;	
+}
+
+.board {
+    height: 100vh; 
+    background-image: url("img/aldebaran.jpg"), linear-gradient(to right, #ffff00, #ff0000);
+    background-blend-mode: luminosity;
+    background-size: 200%;
+    background-position: center;
+    transition-property: background-size;
+    transition-duration: 60s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board:hover {
+    background-size: 100%;
+}
+
+.score {
+  background-image: radial-gradient(
+    closest-corner at center center,
+  rgba(0, 0, 0, 1) 0%,
+  rgba(255, 255, 255, 0) 60%); 
+}
+
+.score h1{  
+    font-size: 90vh;
+    font-family: Montserrat, sans-serif;
+    text-align: center;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+    background-size:auto;
+    background-image: url("img/stars.jpg");    
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    user-select: none;      
+}
+/*
+.score img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    mix-blend-mode: lighten;
+}
+*/
