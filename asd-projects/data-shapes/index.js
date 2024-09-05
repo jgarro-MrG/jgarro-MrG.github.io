@@ -50,19 +50,33 @@ $(document).ready(function () {
 
   // TODO 2: add a new property to all data shapes
 
-  for (var i=0; i < dataShapes.length; i++) {    
-    var currentShape = dataShapes[i];
-    if (currentShape.color === "red") {
-      currentShape.goodBehavior = "bounce";
-    } else if (currentShape.color === "blue") {
-      currentShape.goodBehavior = "blink";
-    } else {
-      currentShape.goodBehavior = "spin";
-    }
-
-    // NOT INCLUDED IN INSTRUCTIONS
-    // dataShapes[i] = currentShape;
+  // for (var i=0; i < dataShapes.length; i++) {    
+  //   var currentShape = dataShapes[i];
+  //   if (currentShape.color === "red") {
+  //     currentShape.goodBehavior = "bounce";
+  //   } else if (currentShape.color === "blue") {
+  //     currentShape.goodBehavior = "blink";
+  //   } else {
+  //     currentShape.goodBehavior = "spin";
+  //   }
+  //
+  //  // NOT INCLUDED IN INSTRUCTIONS
+  //  // console.log(currentShape);
+  //  // dataShapes[i] = currentShape;
+  //
+  // }
+  
+  for (var currentShape in dataShapes) {
+    if (dataShapes[currentShape].color === "red") {
+      dataShapes[currentShape].goodBehavior = "bounce";
+      } else if (currentShape.color === "blue") {
+        dataShapes[currentShape].goodBehavior = "blink";
+      } else {
+        dataShapes[currentShape].goodBehavior = "spin";
+      }  
   }
+
+  console.log(dataShapes); 
 
   // TODO 3-a: add a function that handles the static display type
   
