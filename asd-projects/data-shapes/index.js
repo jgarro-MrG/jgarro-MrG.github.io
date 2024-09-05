@@ -169,7 +169,7 @@ $(document).ready(function () {
     $("#shape").css("top", "150px");
     $("#shape").css("transform", "rotate(0deg)");
     $("#shape").html(
-      `<p>${shapeData.color}</p> <p>${shapeData.shape}</p> <p>${shapeData.repeat}x${shapeData.repeat}</p>`
+      `<p>${shapeData.color}</p> <p>${shapeData.shape}</p> <p>${shapeData.repeat}x${shapeData.repeat}</p> <p>${shapeData.goodBehavior}</p>`
     );
 
     $("#info-bar").text(`Current index: ${currentIndex}`);
