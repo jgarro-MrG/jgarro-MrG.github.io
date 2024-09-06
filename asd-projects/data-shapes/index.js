@@ -49,17 +49,16 @@ $(document).ready(function () {
   dataShapes.push(shape);
 
   // TODO 2: add a new property to all data shapes  
-  for (var currentShape in dataShapes) {
-    if (dataShapes[currentShape].color === "red") {
-      dataShapes[currentShape].goodBehavior = "bounce";
-      } else if (currentShape.color === "blue") {
-        dataShapes[currentShape].goodBehavior = "blink";
+  for (var i=0; i<dataShapes.length; i++) {
+    let currentShape = dataShapes[i];
+    if (dataShapes[i].color === "red") {
+      currentShape.goodBehavior = "bounce";
+      } else if (dataShapes[i].color === "blue") {
+        currentShape.goodBehavior = "blink";
       } else {
-        dataShapes[currentShape].goodBehavior = "spin";
+        currentShape.goodBehavior = "spin";
       }  
   }
-  
-  console.log(dataShapes);
 
   // TODO 3-a: add a function that handles the static display type
   function handleStatic(data) {
