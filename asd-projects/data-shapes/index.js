@@ -58,6 +58,8 @@ $(document).ready(function () {
         dataShapes[currentShape].goodBehavior = "spin";
       }  
   }
+  
+  console.log(dataShapes);
 
   // TODO 3-a: add a function that handles the static display type
   function handleStatic(data) {
@@ -66,7 +68,10 @@ $(document).ready(function () {
   }
 
   // TODO 4-a: add a function that handles the good display type
-  
+  function handleGood(color, shape, repeat) {
+    setBackgroundWithSimple(color, shape, repeat);
+    animationDetails.displayType = 2;
+  }
 
   // TODO 5-a: add a function that handles the bad display type
   
@@ -82,7 +87,8 @@ $(document).ready(function () {
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
-    
+    let currentShape = dataShapes[currentIndex];
+    handleGood(currentShape.color, currentShape.shape, currentShape.repeat);
   }
 
   function badDisplay() {
