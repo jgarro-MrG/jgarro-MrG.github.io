@@ -1,6 +1,7 @@
 
 body {
-  background-color: darkgreen;
+  background-color: rgb(0, 53, 100);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #board {
@@ -23,15 +24,17 @@ body {
 }
 
 .snake {
-  background-color: green;
+  background-color: lightseagreen;
   z-index: 2;
+  border-radius: 3px;
 }
 
 #snake-head {
-  background-color: darkgreen;
+  background-color: seagreen;
 }
 
 .apple {
   background-color: red;
   z-index: 1;
+  border-radius: 8px;;
 }
