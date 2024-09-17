@@ -24,13 +24,13 @@ body {
 }
 
 .snake {
-  background-color: lightseagreen;
+  background-color: green;
   z-index: 2;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 #snake-head {
-  background-color: seagreen;
+  background-color: greenyellow;
 }
 
 .apple {
