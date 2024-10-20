@@ -4,6 +4,10 @@ $(document).ready(function () {
   render($("#display"), image);
   $("#apply").on("click", applyAndRender);
   $("#apply-no-bkg").on("click", applyNoBackgroundAndRender);
+  $("#apply-smudge-left").on("click", {direction: 'left'}, applySmudge);
+  $("#apply-smudge-right").on("click", {direction: 'right'}, applySmudge);
+  $("#apply-smudge-up").on("click", {direction: 'up'}, applySmudge);
+  $("#apply-smudge-down").on("click", {direction: 'down'}, applySmudge);
   $("#reset").on("click", resetAndRender);
 });
 
@@ -27,6 +31,19 @@ function applyAndRender() {
   
 
   // do not change the below line of code
+  render($("#display"), image);
+}
+
+function applySmudge(event) {
+  if(event.data.direction === 'left'){
+    smudgeLeft(image);
+  } else if(event.data.direction === 'right'){
+    smudgeRight(image);
+  } else if(event.data.direction === 'up'){
+    smudgeUp(image);
+  } else if(event.data.direction === 'down'){
+    smudgeDown(image);
+  } 
   render($("#display"), image);
 }
 
@@ -68,9 +85,6 @@ function applyFilterNoBackground(filterFunction) {
       image[i][j] = rgbArrayToString(rgbPixel);
     }  
   }
-  
-  
-  
 }
 
 // TODO 5: Create the keepInBounds function
@@ -117,3 +131,66 @@ function increaseGreenByBlue(image) {
 }
 
 // CHALLENGE code goes below here
+
+
+function smudgeLeft(image) {
+  for (var i = 0; i<image.length; i++) {
+    for (var j = 0; j<image[i].length-1; j++) {
+      var rgbTargetString = image[i][j];
+      var rgbTargetNumbers = rgbStringToArray(rgbTargetString);
+      var rgbSourceString = image[i][j+1];
+      var rgbSourceNumbers = rgbStringToArray(rgbSourceString);
+      smudgePixel(rgbTargetNumbers, rgbSourceNumbers);
+      rgbTargetString = rgbArrayToString(rgbTargetNumbers);
+      image[i][j] = rgbTargetString;
+    }  
+  }
+}
+
+function smudgeRight(image) {
+  for (var i = 0; i<image.length; i++) {
+    for (var j = image[i].length-1; j>1; j--) {
+      var rgbTargetString = image[i][j];
+      var rgbTargetNumbers = rgbStringToArray(rgbTargetString);
+      var rgbSourceString = image[i][j-1];
+      var rgbSourceNumbers = rgbStringToArray(rgbSourceString);
+      smudgePixel(rgbTargetNumbers, rgbSourceNumbers);
+      rgbTargetString = rgbArrayToString(rgbTargetNumbers);
+      image[i][j] = rgbTargetString;
+    }  
+  }
+}
+
+function smudgeUp(image) {
+  for (var i = 0; i<image.length-1; i++) {
+    for (var j = 0; j<image[i].length; j++) {
+      var rgbTargetString = image[i][j];
+      var rgbTargetNumbers = rgbStringToArray(rgbTargetString);
+      var rgbSourceString = image[i+1][j];
+      var rgbSourceNumbers = rgbStringToArray(rgbSourceString);
+      smudgePixel(rgbTargetNumbers, rgbSourceNumbers);
+      rgbTargetString = rgbArrayToString(rgbTargetNumbers);
+      image[i][j] = rgbTargetString;
+    }  
+  }
+}
+
+function smudgeDown(image) {
+  for (var i = image.length-1; i>1; i--) {
+    for (var j = 0; j<image[i].length; j++) {
+      var rgbTargetString = image[i][j];
+      var rgbTargetNumbers = rgbStringToArray(rgbTargetString);
+      var rgbSourceString = image[i-1][j];
+      var rgbSourceNumbers = rgbStringToArray(rgbSourceString);
+      smudgePixel(rgbTargetNumbers, rgbSourceNumbers);
+      rgbTargetString = rgbArrayToString(rgbTargetNumbers);
+      image[i][j] = rgbTargetString;
+    }  
+  }
+}
+
+function smudgePixel(target, source) {
+  target[RED] = ( source[RED] + target[RED] ) / 2;
+  target[GREEN] = ( source[GREEN] + target[GREEN] ) / 2;
+  target[BLUE] = ( source[BLUE] + target[BLUE] ) / 2;
+}

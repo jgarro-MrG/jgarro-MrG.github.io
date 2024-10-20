@@ -11,6 +11,7 @@ body > div {
 #button-box {
   position: relative;
   top: 350px;
+  padding: 5px;
 }
 
 button {
