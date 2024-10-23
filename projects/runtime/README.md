@@ -31,23 +31,6 @@ Halle has some cool moves but nobody to play with. Let's build our own game usin
 
 # Getting Started
 
-## Installation (IMPORTANT)
-
-### Copy and paste the following commands into the bash terminal, then hit ENTER
-
-If Runtime is not already installed, then you can install it manually. To do so, open a new bash terminal. Then in the terminal, enter the following commands in order (one at a time):
-
-- `cd projects`
-- `git clone https://github.com/operationspark/runtime`
-- `cd runtime`
-- `rm -rf .git*`
-- `npm install -g bower`
-- `bower install`
-- `cd ../..`
-- `git add -A`
-- `git commit -m "added runtime"`
-- `git push`
-
 ## Run the program
 
 Preview the `index.html` file.
