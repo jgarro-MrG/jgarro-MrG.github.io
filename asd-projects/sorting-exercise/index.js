@@ -15,8 +15,9 @@ The CSS ids you will work with are:
 
 // TODO 2: Implement bubbleSort
 async function bubbleSort(array) {
-    for(var i = 0; i < array.length; i++){
-        for(var j = array.length - 1; j < i + 1; j--){
+    
+    for(var i = 0; i <= array.length - 1; i++){
+        for(var j = array.length - 1; j >= i + 1; j--){
             if(array[j].value < array[j-1].value) {
                 swap(array,j, j-1);
                 updateCounter(bubbleCounter);
@@ -27,14 +28,42 @@ async function bubbleSort(array) {
 }
 
 // TODO 3: Implement quickSort
-
+async function quickSort(array, left, right) {
+    if ((right - left) > 0) {
+        let index = await partition(array, left, right);
+        if (left < index -1) {
+            await quickSort(array, left, index -1);
+        }
+        if (index < right) {
+            await quickSort(array, index, right);
+        }
+    } else {
+        return;
+    }
+}
 
 // TODOs 4 & 5: Implement partition
-
+async function partition(array, left, right) {
+    let pivot = array[Math.floor((right + left) / 2)].value;
+    while (array[left].value < array[right].value) {
+        while(array[left].value < pivot) {
+            left += 1;
+        }
+        while (array[right].value > pivot) {
+            right -= 1;
+        }
+        if (left < right) {
+            swap(array, left, right);
+            updateCounter(quickCounter);
+            await sleep();
+        }
+    }
+    return left + 1;
+}
 
 // TODO 1: Implement swap
 function swap(array, i, j) {
-    const [tempA, tempB] = [numbers[i],numbers[j]];
+    const [tempA, tempB] = [array[i],array[j]];
     array[i] = tempB;
     array[j] = tempA;
     drawSwap(array, i, j);
