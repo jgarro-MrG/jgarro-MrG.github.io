@@ -12,17 +12,23 @@ body {
 }
 
 #walker {
-  background-color: teal;
+  background-color:lightseagreen;
   width: 50px;
   height: 50px;
   border-radius: 25px;
+  border-color: crimson;
+  border-style: ridge;
+  border-width: 4px;
   position: absolute;
 }
 
 #walker2 {
-  background-color: red;
+  background-color: darkgoldenrod;
   width: 50px;
   height: 50px;
   border-radius: 25px;
+  border-color: crimson;
+  border-style: none;
+  border-width: 4px;
   position: absolute;
 }

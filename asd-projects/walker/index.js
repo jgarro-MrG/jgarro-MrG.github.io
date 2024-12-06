@@ -30,22 +30,28 @@ function runProgram() {
   }
 
   // Game Item Objects
+
+  var DIAMETER = 50;
+  var RADIUS = DIAMETER / 2;
+
   var walker = {
     x: 100,
     y: 100,
-    width: 50,
-    height: 50,
+    width: DIAMETER,
+    height: DIAMETER,
     speedX: 0,
     speedY: 0,
+    isIt: true
   };
 
   var walker2 = {
     x: 350,
     y: 350,
-    width: 50,
-    height: 50,
+    width: DIAMETER,
+    height: DIAMETER,
     speedX: 0,
     speedY: 0,
+    isIt: false
   };
 
 
@@ -62,6 +68,7 @@ function runProgram() {
   by calling this function and executing the code inside.
   */
   function newFrame() {
+    playerCollision(walker, walker2);
     repositionGameItem();
     wallCollision();
     redrawGameItem();
@@ -72,7 +79,7 @@ function runProgram() {
   */
 
   function handleKeyDown(event) {
-    console.log(event.keyCode);
+    //console.log(event.keyCode);
     if (event.keyCode === KEY.LEFT) {
       walker.speedX = -5;
       walker.speedY = 0;
@@ -134,12 +141,24 @@ function runProgram() {
     walker2.y += walker2.speedY;
   }
 
-  function redrawGameItem() {
-    
+  function redrawGameItem() {    
     $("#walker").css("left", walker.x);
     $("#walker").css("top", walker.y);
     $("#walker2").css("left", walker2.x);
     $("#walker2").css("top", walker2.y);
+  }
+
+  function showWhoIsIt() {
+    if (walker.isIt) {
+      //console.log("Player A is it")
+      $("#walker").css("border-style", "ridge")
+      $("#walker2").css("border-style", "none")
+    }
+    if (walker2.isIt) {
+      //console.log("Player B is it")
+      $("#walker").css("border-style", "none")
+      $("#walker2").css("border-style", "ridge")
+    }
   }
 
   function wallCollision() {
@@ -170,8 +189,44 @@ function runProgram() {
       walker2.y -= walker2.speedY;
     }
 
-  }
+  }  
+ 
+  function playerCollision(playerA, playerB) {
+  // this funtion take both players as parameters
+  // and checks collisions from all angles
 
+    var it = {
+      left: playerA.x,
+      centerX: playerA.x + RADIUS,
+      right: playerA.x + DIAMETER,
+      top: playerA.y,
+      centerY: playerA.y + RADIUS,
+      bottom: playerA.y + DIAMETER
+    } 
+
+    var target = {
+      left: playerB.x,
+      centerX: playerB.x + RADIUS,
+      right: playerB.x + DIAMETER,
+      top: playerB.y,
+      centerY: playerB.y + RADIUS,
+      bottom: playerB.y + DIAMETER
+    }  
+    
+    if (
+      // Y-axis collisions
+      (it.bottom >= target.top) &&
+      (it.top <= target.bottom) &&
+      // X-axis colissions
+      (it.right >= target.left) &&
+      (it.left <= target.right)    
+    ) {
+      playerA.isIt =  !playerA.isIt
+      playerB.isIt =  !playerB.isIt
+    } 
+    showWhoIsIt();
+  }
+  
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
@@ -179,4 +234,5 @@ function runProgram() {
     // turn off event handlers
     $(document).off();
   }
+  
 }
